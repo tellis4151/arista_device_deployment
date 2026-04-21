@@ -1,0 +1,35 @@
+---
+- name: Gather information from Arista Routers
+  hosts: arista_routers
+  gather_facts: no
+
+  tasks:
+  - name: Gather Arista Router facts
+    arista.eos.eos_facts:
+      gather_subset: all
+    register: facts
+  
+  - name: Display version
+    debug:
+      msg: "The IOS version is: {{ ansible_net_version }}"
+
+  - name: Display Device Hostname
+    debug:
+      msg: "The Device Hostname is: {{ ansible_net_hostname }}"
+
+  - name: Display Serial Number
+    debug:
+      msg: "The serial number is: {{ ansible_net_serialnum }}"
+
+  - name: Display Device Model
+    debug:
+      msg: "The Device Model is: {{ ansible_net_model }}"
+
+  - name: Display Device Image
+    debug:
+      msg: "The Device Image is: {{ ansible_net_image }}"
+
+  - name: Display Configured IPV4 addresses
+    debug:
+      msg: "The configured IPV4 addresses: {{ ansible_net_all_ipv4_addresses }}"
+
