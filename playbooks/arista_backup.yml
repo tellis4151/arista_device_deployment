@@ -18,8 +18,6 @@
       ansible.builtin.file:
         path: "/home/ec2-user/network_backups/arista/{{ inventory_hostname }}"
         state: directory
-        owner: ec2-user
-        group: ec2-user
         mode: '0755'
 
     - name: Copy file to destination server
