@@ -1,0 +1,14 @@
+---
+- name: SNMP ro/rw string configuration for Arista Devices
+  hosts: arista_routers
+  gather_facts: false
+
+  tasks:
+  - name: Ensure desired snmp strings are present
+    arista.eos.eos_snmp_server:
+      config:
+        communities:
+          - name: ansible-public
+            ro: true
+          - name: ansible-private
+            rw: true
