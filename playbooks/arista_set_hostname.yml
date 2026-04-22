@@ -7,5 +7,5 @@
   - name: Set Router Hostname
     arista.eos.eos_hostname:
       config:
-        hostname: arista-router-2
+        hostname: arista-dev-router-1
       state: merged 
